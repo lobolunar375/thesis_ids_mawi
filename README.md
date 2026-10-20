@@ -13,6 +13,7 @@ Repositorio oficial del estudio experimental sobre selección de característica
 ## 📌 Tabla de Contenidos
 
 - [Motivación y Contexto](#-motivación-y-contexto)
+- [Dataset y Datos Crudos (MAWI 2021)](#-dataset-y-datos-crudos-mawi-2021)
 - [Estructura del Repositorio](#-estructura-del-repositorio)
 - [Diseño Experimental y Metodología](#-diseño-experimental-y-metodología)
 - [Resultados Experimentales Clave](#-resultados-experimentales-clave)
@@ -35,6 +36,27 @@ Este proyecto evalúa bajo condiciones estrictas de paridad ($N = 30$ corridas p
 
 ---
 
+## 🌐 Dataset y Datos Crudos (MAWI 2021)
+
+El corpus utilizado proviene del **Measurement and Analysis on the WIDE Internet (MAWI Working Group)** en el punto de muestreo F (enlace troncal transpacífico Japón–EE.UU., 150 Mbps), cruzado con el etiquetado heurístico de **MAWILab v1.1**.
+
+### Enlaces Oficiales de Descarga Directa
+
+| Fecha Captura | Archivo PCAP Crudo (Gzip) | Tamaño Bruto | Enlace de Descarga Directa (HTTP) |
+| :---: | :---: | :---: | :--- |
+| **2021-02-10** | `202102101400.pcap.gz` | $2{,}65\text{ GB}$ | [Descargar PCAP 20210210](http://mawi.wide.ad.jp/mawi/samplepoint-F/2021/202102101400.pcap.gz) |
+| **2021-06-16** | `202106161400.pcap.gz` | $1{,}69\text{ GB}$ | [Descargar PCAP 20210616](http://mawi.wide.ad.jp/mawi/samplepoint-F/2021/202106161400.pcap.gz) |
+| **2021-10-13** | `202110131400.pcap.gz` | $1{,}81\text{ GB}$ | [Descargar PCAP 20211013](http://mawi.wide.ad.jp/mawi/samplepoint-F/2021/202110131400.pcap.gz) |
+| **Repositorio MAWI** | Punto de Muestreo F (2021) | — | [Archivo General MAWI WIDE 2021](http://mawi.wide.ad.jp/mawi/samplepoint-F/2021/) |
+| **Etiquetas MAWILab** | XML / CSV v1.1 | ~500 KB | Incluidas en el repositorio: `data/raw/mawi_labels/` |
+
+> **Nota:** Debido a que las trazas PCAP crudas totalizan **6,15 GB** y superan el límite de 100 MB por archivo de GitHub, las trazas se descargan bajo demanda utilizando el script automatizado provisto en `src/download_mawi.py`:
+> ```bash
+> python src/download_mawi.py --all
+> ```
+
+---
+
 ## 📁 Estructura del Repositorio
 
 ```text
@@ -42,9 +64,16 @@ thesis_ids/
 ├── config.yaml                     # Configuración central (semillas, rutas, parámetros de RF y metaheurísticas)
 ├── requirements.txt                # Dependencias exactas del entorno Python
 ├── README.md                       # Documentación técnica completa
-├── .gitignore                      # Exclusión de trazas PCAP pesadas y cachés
+├── .gitignore                      # Exclusión de trazas PCAP masivas (>1 GB) y cachés
+│
+├── data/                           # Datos y metadatos
+│   ├── raw/mawi_labels/            # Etiquetas oficiales de MAWILab v1.1 (anomalous, suspicious, notice en CSV y XML)
+│   └── processed/                  # Metadatos del corpus procesado
+│       ├── dataset_stats.json      # Estadísticas de los 3 millones de flujos
+│       └── feature_names.json      # Lista de los 50 atributos extraídos
 │
 ├── src/                            # Pipeline modular ejecutable
+│   ├── download_mawi.py            # Descarga automatizada de las capturas PCAP oficiales
 │   ├── extract_flows.py            # Extracción de flujos bidireccionales con dpkt desde PCAP
 │   ├── label_flows.py              # Cruce vectorial con etiquetas XML de MAWILab v1.1
 │   ├── preprocesamiento.py         # Muestreo estratificado, imputación y partición 70/30 + LOO
@@ -73,10 +102,6 @@ thesis_ids/
 │   │   ├── articulo_cientifico.tex          # Código LaTeX completo
 │   │   └── referencias.bib                  # Bibliografía en formato BibLaTeX-APA
 │   └── resumen_resultados_v2.md    # Síntesis académica detallada
-│
-└── data/processed/                 # Metadatos del corpus procesado
-    ├── dataset_stats.json          # Estadísticas de los 3 millones de flujos
-    └── feature_names.json          # Lista de los 50 atributos extraídos
 ```
 
 ---
@@ -170,14 +195,13 @@ Evaluación de la transferibilidad temporal inter-capturas:
 
 ### Requisitos Previos
 * Python 3.11+
-* Sistema operativo: Linux / Windows / macOS
-* Memoria RAM mínima: 16 GB (para carga de matrices en memoria)
+* Memoria RAM mínima: 16 GB
 
 ### Instalación
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/Jhojan-Medina/thesis_ids_mawi.git
-cd thesis_ids_mawi/thesis_ids
+git clone https://github.com/lobolunar375/thesis_ids_mawi.git
+cd thesis_ids_mawi
 
 # 2. Crear y activar entorno virtual
 python -m venv venv
@@ -187,8 +211,18 @@ source venv/bin/activate  # En Windows: .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-### Ejecución del Pipeline
+### Descarga de Datos Crudos y Ejecución del Pipeline
 ```bash
+# Descargar las capturas PCAP crudas oficiales de MAWI (6.15 GB total)
+python src/download_mawi.py --all
+
+# Extraer y etiquetar flujos bidireccionales
+python src/extract_flows.py 20210616
+python src/label_flows.py
+
+# Preprocesar datos (muestreo estratificado y partición)
+python src/preprocesamiento.py
+
 # Ejecutar las 30 corridas completas (Línea Base, Random-k21, PSO y BA)
 python src/run_all.py
 
