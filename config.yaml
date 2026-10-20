@@ -1,0 +1,63 @@
+# ============================================================
+# config.yaml - Parametros globales del experimento
+# ============================================================
+
+data:
+  labeled_20210616: "../mawi_2021/flows_20210616_labeled.parquet"
+  labeled_20210210: "../mawi_2021/flows_20210210_labeled.parquet"
+  labeled_20211013: "../mawi_2021/flows_20211013_labeled.parquet"
+  processed_dir:    "data/processed"
+  interim_dir:      "data/interim"
+
+# Columnas a eliminar (identificadores, no features)
+drop_cols:
+  - flow_id
+  - src_ip
+  - dst_ip
+  - src_port
+  - dst_port
+  - start_ts
+  - end_ts
+  - _idx
+
+split:
+  test_size:    0.30
+  seed:         42
+  subsample_n:  10000   # flujos para busqueda PSO/BA (reducido para ~1h total)
+
+classifier:
+  n_estimators: 100
+  max_depth:    15
+  n_jobs:       -1
+  class_weight: balanced
+  seed:         42
+
+experiment:
+  n_runs:       30
+  seed_base:    42      # semilla run i = seed_base + i
+
+pso:
+  population:   10
+  iterations:   15
+  w:            0.7     # inercia
+  c1:           1.5     # cognitivo
+  c2:           1.5     # social
+  vmax:         6.0
+  transfer:     sigmoid
+
+bat:
+  population:   10
+  iterations:   15
+  f_min:        0.0
+  f_max:        2.0
+  alpha:        0.9
+  gamma:        0.9
+  A0:           1.0
+  r0:           0.5
+  transfer:     sigmoid
+
+fitness:
+  alpha:        0.95    # peso F1 vs reduccion
+  cv_folds:     2       # reducido de 3 a 2 para velocidad
+  n_estimators_search: 20  # arboles en busqueda (evaluacion final usa 100)
+  min_features: 1       # penalizar subconjunto vacio

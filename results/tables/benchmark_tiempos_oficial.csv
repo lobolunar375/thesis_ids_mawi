@@ -1,0 +1,5 @@
+arm,n_features_mean,t_train_mean_s,t_train_std_s,RTE_pct,t_infer_us_per_flow,t_infer_std_us,RTI_pct,reference_baseline
+Baseline-500k,50.0,26.45,15.21,0.0,2.256,1.534,0.0,"Baseline-500k (50 feat, train=500k)"
+Random-k21,21.0,16.73,8.67,36.75,2.071,1.432,8.23,"Baseline-500k (50 feat, train=500k)"
+PSO,18.5,16.91,8.96,36.07,2.014,1.418,10.75,"Baseline-500k (50 feat, train=500k)"
+BA,24.2,19.45,10.71,26.47,2.173,1.596,3.69,"Baseline-500k (50 feat, train=500k)"

@@ -1,0 +1,72 @@
+[
+  {
+    "arm": "Clasificador-Trivial",
+    "n_features_mean": 0.0,
+    "f1_macro_mean": 0.4361,
+    "f1_macro_std": 0.0159,
+    "recall_atk_mean": 0.0,
+    "recall_atk_std": 0.0,
+    "accuracy_mean": 0.7743,
+    "accuracy_std": 0.0494,
+    "TFP_mean": 0.0,
+    "TFP_std": 0.0,
+    "TFD_mean": 0.0,
+    "TFD_std": 0.0
+  },
+  {
+    "arm": "Baseline",
+    "n_features_mean": 50.0,
+    "f1_macro_mean": 0.4859,
+    "f1_macro_std": 0.0356,
+    "recall_atk_mean": 0.1977,
+    "recall_atk_std": 0.1859,
+    "accuracy_mean": 0.6783,
+    "accuracy_std": 0.1451,
+    "TFP_mean": 0.1711,
+    "TFP_std": 0.249,
+    "TFD_mean": 0.5851,
+    "TFD_std": 0.2096
+  },
+  {
+    "arm": "Random-k21",
+    "n_features_mean": 21.0,
+    "f1_macro_mean": 0.4795,
+    "f1_macro_std": 0.0293,
+    "recall_atk_mean": 0.3144,
+    "recall_atk_std": 0.2148,
+    "accuracy_mean": 0.613,
+    "accuracy_std": 0.1572,
+    "TFP_mean": 0.309,
+    "TFP_std": 0.2514,
+    "TFD_mean": 0.6829,
+    "TFD_std": 0.1608
+  },
+  {
+    "arm": "PSO-Fold",
+    "n_features_mean": 17.3,
+    "f1_macro_mean": 0.5222,
+    "f1_macro_std": 0.0827,
+    "recall_atk_mean": 0.2646,
+    "recall_atk_std": 0.1642,
+    "accuracy_mean": 0.6815,
+    "accuracy_std": 0.1473,
+    "TFP_mean": 0.1928,
+    "TFP_std": 0.2332,
+    "TFD_mean": 0.5756,
+    "TFD_std": 0.2195
+  },
+  {
+    "arm": "BA-Fold",
+    "n_features_mean": 17.7,
+    "f1_macro_mean": 0.4715,
+    "f1_macro_std": 0.0357,
+    "recall_atk_mean": 0.407,
+    "recall_atk_std": 0.3255,
+    "accuracy_mean": 0.5921,
+    "accuracy_std": 0.1826,
+    "TFP_mean": 0.3737,
+    "TFP_std": 0.327,
+    "TFD_mean": 0.6535,
+    "TFD_std": 0.1941
+  }
+]

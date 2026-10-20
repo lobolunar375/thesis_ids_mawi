@@ -1,0 +1,37 @@
+# Python & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Entornos virtuales
+env/
+venv/
+.venv/
+ENV/
+
+# Datos crudos y binarios pesados (MAWI PCAP y Parquet generados)
+*.pcap
+*.pcap.gz
+*.pcapng
+*.parquet
+mawi_2021/
+archivos_del_desarrollo/
+thesis_ids/data/interim/
+thesis_ids/data/processed/*.parquet
+!thesis_ids/data/processed/dataset_stats.json
+!thesis_ids/data/processed/feature_names.json
+
+# Logs y temporales
+*.log
+scratch/
+.system_generated/
+
+# Archivos de sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak

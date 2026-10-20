@@ -1,0 +1,11 @@
+{
+  "f1_macro_mean": 0.7285920044305312,
+  "recall_atk_mean": 0.7182932154225486,
+  "accuracy_mean": 0.785436888888889,
+  "TFP_mean": 0.19471395783277934,
+  "TFD_mean": 0.4783451046559765,
+  "t_train_mean": 99.51247385666647,
+  "t_infer_mean": 3.205004996293509,
+  "n_features": 50,
+  "trivial_accuracy": 0.77183
+}

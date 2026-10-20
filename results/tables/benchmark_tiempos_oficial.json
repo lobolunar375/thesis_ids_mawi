@@ -1,0 +1,46 @@
+[
+  {
+    "arm": "Baseline-500k",
+    "n_features_mean": 50.0,
+    "t_train_mean_s": 26.45,
+    "t_train_std_s": 15.21,
+    "RTE_pct": 0.0,
+    "t_infer_us_per_flow": 2.256,
+    "t_infer_std_us": 1.534,
+    "RTI_pct": 0.0,
+    "reference_baseline": "Baseline-500k (50 feat, train=500k)"
+  },
+  {
+    "arm": "Random-k21",
+    "n_features_mean": 21.0,
+    "t_train_mean_s": 16.73,
+    "t_train_std_s": 8.67,
+    "RTE_pct": 36.75,
+    "t_infer_us_per_flow": 2.071,
+    "t_infer_std_us": 1.432,
+    "RTI_pct": 8.23,
+    "reference_baseline": "Baseline-500k (50 feat, train=500k)"
+  },
+  {
+    "arm": "PSO",
+    "n_features_mean": 18.5,
+    "t_train_mean_s": 16.91,
+    "t_train_std_s": 8.96,
+    "RTE_pct": 36.07,
+    "t_infer_us_per_flow": 2.014,
+    "t_infer_std_us": 1.418,
+    "RTI_pct": 10.75,
+    "reference_baseline": "Baseline-500k (50 feat, train=500k)"
+  },
+  {
+    "arm": "BA",
+    "n_features_mean": 24.2,
+    "t_train_mean_s": 19.45,
+    "t_train_std_s": 10.71,
+    "RTE_pct": 26.47,
+    "t_infer_us_per_flow": 2.173,
+    "t_infer_std_us": 1.596,
+    "RTI_pct": 3.69,
+    "reference_baseline": "Baseline-500k (50 feat, train=500k)"
+  }
+]

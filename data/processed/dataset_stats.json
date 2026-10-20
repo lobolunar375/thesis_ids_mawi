@@ -1,0 +1,13 @@
+{
+  "n_train": 2100000,
+  "n_test": 900000,
+  "n_features": 50,
+  "pct_attack_train": 22.81704761904762,
+  "pct_attack_test": 22.817,
+  "trivial_accuracy": 0.77183,
+  "sample_per_capture": {
+    "20210616": 1500000,
+    "20210210": 1000000,
+    "20211013": 500000
+  }
+}

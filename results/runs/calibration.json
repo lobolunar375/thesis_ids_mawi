@@ -1,0 +1,10 @@
+{
+  "t_eval_s": 0.8028690814971924,
+  "population": 10,
+  "iterations": 15,
+  "n_runs": 30,
+  "n_algos": 2,
+  "t_total_est_h": 2.007172703742981,
+  "subsample_n": 10000,
+  "n_features": 50
+}
