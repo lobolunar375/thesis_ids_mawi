@@ -102,6 +102,8 @@ thesis_ids/
 │   │   ├── articulo_cientifico.tex          # Código LaTeX completo
 │   │   └── referencias.bib                  # Bibliografía en formato BibLaTeX-APA
 │   └── resumen_resultados_v2.md    # Síntesis académica detallada
+│
+└── papers/                         # 13 artículos científicos de referencia analizados (PDF)
 ```
 
 ---
