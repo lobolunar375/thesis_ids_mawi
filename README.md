@@ -240,17 +240,7 @@ python src/run_loo_leakfree.py
 
 ---
 
-## 📄 Artículo Académico (APA 7.ª edición)
 
-El artículo formal se encuentra en `results/articulo_latex/articulo_cientifico.tex`, formateado con base en las directrices de la American Psychological Association (APA 7.ª edición).
-
-Para compilar en Overleaf o localmente:
-```bash
-pdflatex articulo_cientifico.tex
-biber articulo_cientifico
-pdflatex articulo_cientifico.tex
-pdflatex articulo_cientifico.tex
-```
 
 ---
 
