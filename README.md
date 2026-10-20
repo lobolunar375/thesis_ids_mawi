@@ -187,7 +187,7 @@ Evaluación de la transferibilidad temporal inter-capturas:
 * **H1 (Eficacia $F_1$-macro): NO RESPALDADA.** PSO no difiere estadísticamente de la línea base ($p_{\text{Holm}} = 1{,}0000; r_b = +0{,}019$) y BA es inferior ($p_{\text{Holm}} < 0{,}001$). Además, PSO reduce el recall en $6{,}39\text{ pp}$ ($8{,}98\,\%$; $p_{\text{Holm}} < 0{,}001$).
 * **H2 (Falsas Alarmas TFP): NO RESPALDADA (Formalmente).** Aunque PSO reduce la TFP en un $21{,}2\,\%$ relativo (evitando $28{,}275$ falsas alarmas por corrida), el test de Holm arroja $p_{\text{Holm}} = 0{,}5264$ debido a la variabilidad entre semillas ($SD = 0{,}0588$).
 * **H3 (Eficiencia Computacional $\ge 20\,\%$): PARCIALMENTE RESPALDADA.** El tiempo de entrenamiento disminuye **$36{,}07\,\%$** ($p = 0{,}00002 \ge 20\,\%$), pero la latencia de inferencia solo mejora **$10{,}75\,\%$** ($p = 0{,}00015 < 20\,\%$). Además, la equivalencia con el control aleatorio ($p = 0{,}0919$) demuestra que el ahorro se debe a la reducción dimensional y no a la metaheurística.
-* **H4 (PSO vs. BA): PARCIALMENTE RESPALDADA.** PSO converge a soluciones compactas (18,5 atributos) y específicas; BA converge a subconjuntos más amplios (24,2 atributos) que retienen mayor recall de ataque ($p_{\text{Holm}} = 0{,}0215; r_b = -0{,}673$).
+
 
 ---
 
